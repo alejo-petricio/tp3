@@ -1,0 +1,23 @@
+2_ 
+-Con respecto al tiempo de ejecucion de cada tarea, podemos ver que, tanto en la tarea 2 como en la tarea 3, los tiempos son predecibles ya que tienen una demora fija usando la funcion time.sleep(). No pasa lo mismo con tarea 1, ya que su tiempo de demora dependera de la velocidad de cada maquina, al no tener un tiempo de demora fija.
+
+-Un proceso de "maxima velocidad posible" puede ser, por ejemplo, el correr los graficos de un videojuego. La velocidad de ejecucion en este caso va a depender de la capacidad que tenga la maquina donde estemos corriendo el videojuego, para que este pueda ejecutarse con mayor o menor fluidez.
+
+-Un proceso de “velocidad de respuesta no dependiente de la velocidad de procesamiento”, podria ser, una fila de pacientes o clientes en cualquier lugar de atencion el publico. El tiempo sera impredecible, ya que cada persona atendida tendra una demora incierta.
+
+-El tiempo de ejecucion con respecto al mismo programa sin hilos, mejoro notablemente con la incorporacion de estos.
+En el caso particular de mi maquina, las ejecuciones del programa sin hilos tardaban un promedio de 8 segundos.
+Y con la incorporacion de los hilos, 4 segundos.
+
+-Las funciones no completan su ejecucion en el orden establecido. La tarea 2, finaliza antes que la tarea 1, ya que, en mi maquina, la tarea 2 finaliza casi 1 segundo antes que la tarea 1.
+
+-Un ejemplo de multi-hilado puede ser la aplicacion spotify, ademas de ayudar en la carga de la aplicacion, pense en el caso particular de cuando ponemos a reproducir una playlist, el multi-hilado hace que ya esten disponibles las demas canciones al instante que termina la que estamos escuchando. Evitando asi, el tiempo que tardaria el programa en llamar una por una cada vez que se termine una cancion.
+
+3_
+-Con respecto al tiempo de ejecucion no note nada fuera de lo mejor, se mantuvo equilibrado en cada una de las ejecuciones.
+-El valor final del acumulador varia en cada ejecucion. Esto sucede debido a que hay dos hilos modificando la variable acumulador sin ninguno tipo de sincronizacion, lo que se llama una race condition. 
+Por este motivo el valor que devuelve el programa es impredecible, y puede retornar cualquier valor.
+-Para corregir esto, deberiamos utilizar algun metodo que sincronice los hilos, y que estos puedan modificar la variable acumulador uno a la vez. 
+
+4_
+-Con los cambios establecidos, la variable acumulador retorna 0 en todas las ejecuciones, ya que mediante el sistema de sincronizacion "bloqueamos los hilos", y estos ingresan y modifican los valores de acumulador de forma sincronizada, lo que hace que el programa le sume 5 y le reste 5 a acumulador de manera ordenada, tal que termine devolviendo 0 siempre.
